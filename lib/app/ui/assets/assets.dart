@@ -1,0 +1,1 @@
+export 'lottie/lottie.dart';
