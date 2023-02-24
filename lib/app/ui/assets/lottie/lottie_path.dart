@@ -3,5 +3,5 @@
 abstract class LottiePath {
   static const _path = 'lib/app/ui/assets/lottie';
 
-  static const String microphone = '$_path/enable-mic.json';
+  static const String pet = '$_path/pet.json';
 }

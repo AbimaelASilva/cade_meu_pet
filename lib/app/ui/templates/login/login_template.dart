@@ -17,36 +17,39 @@ class LoginTemplate extends GetView<LoginController> {
           child: ListView(
             shrinkWrap: true,
             children: [
+              const ProLottie(
+                lottiePath: LottiePath.pet,
+                height: 150,
+              ),
+              Text(
+                'label_welcome'.tr,
+                style: ProTextStyles.bold22.copyWith(
+                  fontSize: ProFontSizes.size20,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
               Padding(
-                padding: const EdgeInsets.only(bottom: ProSpaces.proSpaces18),
+                padding: const EdgeInsets.only(bottom: ProSpaces.proSpaces32),
                 child: Text(
-                  'label_welcome'.tr,
+                  'label_app_name'.tr,
                   style: ProTextStyles.bold22.copyWith(
-                    fontSize: ProFontSizes.size20,
-                    fontWeight: FontWeight.w600,
+                    fontSize: ProFontSizes.size30,
+                    fontWeight: FontWeight.w700,
                   ),
                 ),
               ),
-              Text(
-                'label_app_name'.tr,
-                style: ProTextStyles.bold22.copyWith(
-                  fontSize: ProFontSizes.size30,
-                  fontWeight: FontWeight.w700,
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(
-                  top: 70,
-                  bottom: ProSpaces.proSpaces32,
-                ),
-                child: Text(
-                  'label_access'.tr,
-                  style: ProTextStyles.bold22.copyWith(
-                      fontSize: ProFontSizes.size24,
-                      fontWeight: FontWeight.w700,
-                      color: ProColors.greenDark),
-                ),
-              ),
+              // Padding(
+              //   padding: const EdgeInsets.symmetric(
+              //     vertical: ProSpaces.proSpaces16,
+              //   ),
+              //   child: Text(
+              //     'label_access'.tr,
+              //     style: ProTextStyles.bold22.copyWith(
+              //         fontSize: ProFontSizes.size24,
+              //         fontWeight: FontWeight.w700,
+              //         color: ProColors.greenDark),
+              //   ),
+              // ),
               Text(
                 'label_tap_email'.tr,
                 style: ProTextStyles.regular12.copyWith(

@@ -43,7 +43,8 @@ class ProTextField extends StatelessWidget {
       style: labelStyle ??
           ProTextStyles.regular16.copyWith(fontWeight: FontWeight.w400),
       decoration: InputDecoration(
-        contentPadding: const EdgeInsets.fromLTRB(8.0, 10.0, 10.0, 10.0),
+        isDense: true,
+        contentPadding: const EdgeInsets.fromLTRB(8.0, 15.0, 10.0, 15.0),
         border: const OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(10)),
           borderSide: BorderSide.none,
