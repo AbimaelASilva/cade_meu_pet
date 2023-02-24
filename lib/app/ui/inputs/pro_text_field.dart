@@ -40,18 +40,18 @@ class ProTextField extends StatelessWidget {
           selection: TextSelection.collapsed(offset: text.length),
         ),
       ),
-      style: labelStyle ?? ProTextStyles.regular16,
+      style: labelStyle ??
+          ProTextStyles.regular16.copyWith(fontWeight: FontWeight.w400),
       decoration: InputDecoration(
         contentPadding: const EdgeInsets.fromLTRB(8.0, 10.0, 10.0, 10.0),
-        border: InputBorder.none,
-
+        border: const OutlineInputBorder(
+          borderRadius: BorderRadius.all(Radius.circular(10)),
+          borderSide: BorderSide.none,
+        ),
         fillColor: backgroundColor ?? Colors.transparent,
-        // label: Text(
-        //   label,
-        //   style: ProTextStyles.regular16,
-        // ),
         hintText: hintText,
-        hintStyle: ProTextStyles.regular16,
+        hintStyle: ProTextStyles.regular16
+            .copyWith(fontWeight: FontWeight.w400, color: ProColors.grayDark),
         filled: true,
       ),
       keyboardType: keyboardType ?? TextInputType.text,

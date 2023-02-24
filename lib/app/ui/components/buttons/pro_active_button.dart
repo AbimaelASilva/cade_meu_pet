@@ -10,6 +10,9 @@ class ProActiveButton extends StatelessWidget {
     required this.buttonName,
     required this.onPressed,
     required this.height,
+    this.backgroundColor,
+    this.textColor,
+    this.borderSide,
     this.width = 50,
     this.icon,
   }) : super(key: key);
@@ -19,6 +22,9 @@ class ProActiveButton extends StatelessWidget {
   final double width;
   final Function()? onPressed;
   final Widget? icon;
+  final Color? backgroundColor;
+  final Color? textColor;
+  final BorderSide? borderSide;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -28,11 +34,19 @@ class ProActiveButton extends StatelessWidget {
         onPressed: onPressed,
         style: ButtonStyle(
             alignment: icon != null ? Alignment.centerLeft : Alignment.center,
-            backgroundColor: MaterialStateProperty.all(ProColors.orange)),
+            backgroundColor: MaterialStateProperty.all(
+              backgroundColor ?? ProColors.redHigh,
+            ),
+            shape: MaterialStateProperty.all(
+              RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10),
+                side: borderSide ?? BorderSide.none,
+              ),
+            )),
         child: Text(
           buttonName,
           style: TextStyle(
-            color: ProColors.white,
+            color: textColor ?? ProColors.white,
           ),
           textAlign: TextAlign.center,
         ),

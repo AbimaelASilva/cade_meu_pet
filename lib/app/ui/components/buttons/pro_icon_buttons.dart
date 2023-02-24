@@ -21,7 +21,7 @@ class ProIconButton extends StatelessWidget {
     return IconButton(
       icon: FaIcon(
         icon,
-        color: iconColor ?? ProColors.red,
+        color: iconColor ?? ProColors.redHigh,
       ),
       onPressed: onPressed,
     );

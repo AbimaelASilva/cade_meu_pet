@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 import 'inputs.dart';
 import '../padding/pro_padding.dart';
@@ -33,8 +32,8 @@ class ProFormInput extends StatelessWidget {
         ),
         ProRoundedContainer(
           borderRadius: 8,
-          borderColor: ProColors.grayOne,
-          backgroundColor: ProColors.grayOne,
+          borderColor: ProColors.grayMedium,
+          backgroundColor: ProColors.grayMedium,
           child: Row(
             children: [
               Expanded(

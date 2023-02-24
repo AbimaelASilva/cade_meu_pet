@@ -25,7 +25,7 @@ proSnackBar({
 
     shouldIconPulse: true,
     borderRadius: 2,
-    leftBarIndicatorColor: ProColors.orange,
+    leftBarIndicatorColor: ProColors.redMedium,
     backgroundColor: backgroundColor,
     padding: const EdgeInsets.all(15),
     margin: EdgeInsets.zero,

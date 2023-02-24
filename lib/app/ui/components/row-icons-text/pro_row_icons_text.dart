@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../../colors/colors.dart';
-import '../../spaces/spaces.dart';
 
 import '../components.dart';
 import '../../padding/pro_padding.dart';
@@ -42,7 +41,7 @@ class ProRowIconsText extends StatelessWidget {
                 ProRoundedContainer(
                   borderRadius: radiusLeftIcon ?? 16,
                   backgroundColor: backgroundColor,
-                  borderColor: borderColorLeftIcon ?? ProColors.grayOne,
+                  borderColor: borderColorLeftIcon ?? ProColors.grayMedium,
                   borderWidth: borderWidth,
                   child: Padding(
                     padding: paddingLeftIcon,

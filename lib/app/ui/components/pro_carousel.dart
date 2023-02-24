@@ -55,8 +55,8 @@ class _ProCarouselState extends State<ProCarousel> {
                     const EdgeInsets.symmetric(vertical: 8.0, horizontal: 4.0),
                 decoration: BoxDecoration(
                     color: _current == entry.key
-                        ? ProColors.orange
-                        : ProColors.gray,
+                        ? ProColors.redMedium
+                        : ProColors.grayMedium,
                     borderRadius: ProRadius.proRadiusAll6),
               ),
             );

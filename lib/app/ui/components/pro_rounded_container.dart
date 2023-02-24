@@ -7,7 +7,7 @@ class ProRoundedContainer extends StatelessWidget {
     required this.child,
     this.borderRadius = 16,
     this.borderWidth = 1.0,
-    this.borderColor = ProColors.grayOne,
+    this.borderColor = ProColors.grayMedium,
     this.backgroundColor,
     super.key,
   });

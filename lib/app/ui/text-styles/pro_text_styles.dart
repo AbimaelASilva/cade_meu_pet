@@ -5,24 +5,24 @@ import 'package:flutter/material.dart';
 import '../ui.dart';
 
 class ProTextStyles {
-  ///color: ProColors.softGray,
+  ///color: ProColors.grayMedium,
   ///  fontSize: ProFontSizes.size12,
   static final regular12 = TextStyle(
-    color: ProColors.softGray,
+    color: ProColors.dark,
     fontSize: ProFontSizes.size12,
   );
 
-  /// color: ProColors.softGray,
+  /// color: ProColors.grayMedium,
   ///  fontSize: ProFontSizes.size14,
   static final regular14 = TextStyle(
-    color: ProColors.softGray,
+    color: ProColors.dark,
     fontSize: ProFontSizes.size14,
   );
 
-  /// color: ProColors.softGray,
+  /// color: ProColors.grayMedium,
   ///   fontSize: ProFontSizes.size16,
   static final regular16 = TextStyle(
-    color: ProColors.softGray,
+    color: ProColors.dark,
     fontSize: ProFontSizes.size16,
   );
 

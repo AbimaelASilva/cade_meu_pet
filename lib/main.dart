@@ -1,3 +1,4 @@
+import 'package:cade_meu_pet/app/ui/colors/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -19,7 +20,7 @@ class ProApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Preço Bom',
       getPages: AppPages.routes,
-      initialRoute: Routes.home,
+      initialRoute: Routes.login,
       unknownRoute: AppPages.routes.first,
       translations: ProTranslations(),
 
@@ -32,14 +33,14 @@ class ProApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         useMaterial3: true,
         colorScheme: const ColorScheme.light().copyWith(
-          primary: Colors.green[700],
+          primary: ProColors.blueDark,
           secondary: Colors.green[700],
         ),
         inputDecorationTheme: InputDecorationTheme(
           filled: true,
           fillColor: Theme.of(context).colorScheme.onPrimary,
-          hintStyle: TextStyle(
-            color: Colors.green[700],
+          hintStyle: const TextStyle(
+            color: ProColors.dark,
           ),
         ),
         floatingActionButtonTheme: const FloatingActionButtonThemeData(
