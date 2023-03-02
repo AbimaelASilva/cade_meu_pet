@@ -1,3 +1,4 @@
+import 'package:cade_meu_pet/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -62,7 +63,7 @@ class LoginTemplate extends GetView<LoginController> {
                   bottom: ProSpaces.proSpaces20,
                 ),
                 child: ProTextField(
-                  backgroundColor: ProColors.grayMedium,
+                  backgroundColor: ProColors.gray,
                   labelStyle: ProTextStyles.regular14,
                   hintText: 'label_email'.tr,
                 ),
@@ -79,7 +80,7 @@ class LoginTemplate extends GetView<LoginController> {
                   bottom: ProSpaces.proSpaces32,
                 ),
                 child: ProTextField(
-                  backgroundColor: ProColors.grayMedium,
+                  backgroundColor: ProColors.gray,
                   labelStyle: ProTextStyles.regular14,
                   hintText: 'label_password'.tr,
                 ),
@@ -117,7 +118,7 @@ class LoginTemplate extends GetView<LoginController> {
                     Expanded(
                       child: ProActiveButton(
                         buttonName: 'label_register'.tr,
-                        backgroundColor: ProColors.grayMedium,
+                        backgroundColor: ProColors.gray,
                         textColor: ProColors.redMedium,
                         borderSide: const BorderSide(
                           width: 1.0,
@@ -134,7 +135,7 @@ class LoginTemplate extends GetView<LoginController> {
                       child: ProActiveButton(
                         buttonName: 'label_to_access'.tr,
                         height: 62,
-                        onPressed: () {},
+                        onPressed: () => Get.toNamed(Routes.home),
                       ),
                     ),
                   ],

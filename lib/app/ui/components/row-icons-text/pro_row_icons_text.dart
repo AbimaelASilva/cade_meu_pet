@@ -41,7 +41,7 @@ class ProRowIconsText extends StatelessWidget {
                 ProRoundedContainer(
                   borderRadius: radiusLeftIcon ?? 16,
                   backgroundColor: backgroundColor,
-                  borderColor: borderColorLeftIcon ?? ProColors.grayMedium,
+                  borderColor: borderColorLeftIcon ?? ProColors.gray,
                   borderWidth: borderWidth,
                   child: Padding(
                     padding: paddingLeftIcon,

@@ -47,3 +47,8 @@ flutter:
     - lib/app/ui/assets/images/ 
     - lib/app/ui/assets/lottie/ 
 
+  fonts:
+   - family:  ProIconsFont
+     fonts:
+       - asset: lib/app/ui/assets/fonts/icons/ProIconsFont.ttf
+

@@ -32,8 +32,8 @@ class ProFormInput extends StatelessWidget {
         ),
         ProRoundedContainer(
           borderRadius: 8,
-          borderColor: ProColors.grayMedium,
-          backgroundColor: ProColors.grayMedium,
+          borderColor: ProColors.gray,
+          backgroundColor: ProColors.gray,
           child: Row(
             children: [
               Expanded(

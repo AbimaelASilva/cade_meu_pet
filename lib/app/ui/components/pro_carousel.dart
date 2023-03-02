@@ -56,7 +56,7 @@ class _ProCarouselState extends State<ProCarousel> {
                 decoration: BoxDecoration(
                     color: _current == entry.key
                         ? ProColors.redMedium
-                        : ProColors.grayMedium,
+                        : ProColors.gray,
                     borderRadius: ProRadius.proRadiusAll6),
               ),
             );
