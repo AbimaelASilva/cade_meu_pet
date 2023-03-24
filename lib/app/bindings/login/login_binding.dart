@@ -8,8 +8,8 @@ import '../../controllers/controllers.dart';
 class LoginBindings implements Bindings {
   @override
   void dependencies() {
-    final proHasuraConnect = ProHasuraConnect().proHasuraConnect;
-    final provier = LoginProviders(proHasuraConnect);
+    final proDioConnect = ProDioConnect();
+    final provier = LoginProviders(proDioConnect);
     Get.lazyPut(
       () => LoginController(provier),
     );

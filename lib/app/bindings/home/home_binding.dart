@@ -8,8 +8,8 @@ import '../../controllers/controllers.dart';
 class HomeBindings implements Bindings {
   @override
   void dependencies() {
-    final proHasuraConnect = ProHasuraConnect().proHasuraConnect;
-    final provier = HomeProviders(proHasuraConnect);
+    final proDioConnect = ProDioConnect();
+    final provier = HomeProviders(proDioConnect);
     Get.lazyPut(
       () => HomeController(provier),
     );

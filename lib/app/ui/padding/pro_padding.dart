@@ -18,4 +18,5 @@ abstract class ProPadding {
   static const symmetricalVer16 = EdgeInsets.symmetric(vertical: 16);
   static const symmetricalVer24 = EdgeInsets.symmetric(vertical: 24);
   static const symmetricalVer32 = EdgeInsets.symmetric(vertical: 32);
+  static const symmetricalVer42 = EdgeInsets.symmetric(vertical: 42);
 }

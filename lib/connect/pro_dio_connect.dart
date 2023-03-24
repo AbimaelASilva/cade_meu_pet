@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:dio/dio.dart';
 
 class ProDioConnect {
@@ -8,29 +6,6 @@ class ProDioConnect {
   }
 
   Dio dio = Dio();
-
-  Future<dynamic> getWithBasicAuth({
-    required String url,
-    required String ep,
-  }) async {
-    try {
-      String basicAuth = base64Encode(utf8.encode('abimael:abirosu75321'));
-
-      final response = await dio.get(
-        "$url$ep",
-        options: Options(
-          headers: <String, dynamic>{
-            'Authorization': 'Basic $basicAuth',
-          },
-        ),
-      );
-
-      return response.data;
-    } catch (e) {
-      print(e);
-      return null;
-    }
-  }
 
   Future<dynamic> get({
     required String url,
@@ -43,33 +18,26 @@ class ProDioConnect {
 
       return response.data;
     } catch (e) {
-      print(e);
-      return null;
+      rethrow;
     }
   }
 
-  Future<dynamic> postWithBasicAuth({
+  Future<dynamic> post({
     required String url,
     required String ep,
     Map<String, dynamic>? queryParameters,
+    dynamic data,
   }) async {
     try {
-      String basicAuth = base64Encode(utf8.encode('abimael:abirosu75321'));
-
       final response = await dio.post(
         "$url$ep",
-        options: Options(
-          headers: <String, dynamic>{
-            'Authorization': 'Basic $basicAuth',
-          },
-        ),
         queryParameters: queryParameters,
+        data: data,
       );
 
       return response.data;
     } catch (e) {
-      print(e);
-      return null;
+      rethrow;
     }
   }
 }

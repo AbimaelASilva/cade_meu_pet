@@ -1,8 +1,8 @@
-import 'package:hasura_connect/hasura_connect.dart';
+import '../../../connect/connect.dart';
 
 class HomeProviders {
-  HomeProviders(this._proHasuraConnect);
-  final HasuraConnect _proHasuraConnect;
+  HomeProviders(this._proDioConnect);
+  final ProDioConnect _proDioConnect;
 
   Future<void> fetchData() async {
     try {} catch (e) {

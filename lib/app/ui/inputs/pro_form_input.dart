@@ -41,7 +41,7 @@ class ProFormInput extends StatelessWidget {
                   padding: ProPadding.all4,
                   child: ProTextField(
                     enabledInput: enabledInput,
-                    text: inputText,
+                    value: inputText,
                     onChanged: onChanged,
                   ),
                 ),

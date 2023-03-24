@@ -5,7 +5,7 @@ import '../ui.dart';
 
 class ProTextField extends StatelessWidget {
   const ProTextField({
-    this.text = '',
+    this.value = '',
     this.onChanged,
     this.onTap,
     this.hintText = '',
@@ -15,10 +15,11 @@ class ProTextField extends StatelessWidget {
     this.inputFormmatters,
     this.enabledInput,
     this.backgroundColor,
+    this.maxLines,
     Key? key,
   }) : super(key: key);
 
-  final String text;
+  final String value;
   final String hintText;
   final String label;
   final Function(String)? onChanged;
@@ -28,6 +29,7 @@ class ProTextField extends StatelessWidget {
   final List<TextInputFormatter>? inputFormmatters;
   final bool? enabledInput;
   final Color? backgroundColor;
+  final int? maxLines;
 
   @override
   Widget build(BuildContext context) {
@@ -35,13 +37,14 @@ class ProTextField extends StatelessWidget {
       enabled: enabledInput,
       controller: TextEditingController.fromValue(
         TextEditingValue(
-          text: text,
+          text: value,
           //  text: text,
-          selection: TextSelection.collapsed(offset: text.length),
+          selection: TextSelection.collapsed(offset: value.length),
         ),
       ),
       style: labelStyle ??
           ProTextStyles.regular16.copyWith(fontWeight: FontWeight.w400),
+      maxLines: maxLines,
       decoration: InputDecoration(
         isDense: true,
         contentPadding: const EdgeInsets.fromLTRB(8.0, 15.0, 10.0, 15.0),

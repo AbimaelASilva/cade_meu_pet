@@ -125,7 +125,7 @@ class LoginTemplate extends GetView<LoginController> {
                           color: ProColors.redMedium,
                         ),
                         height: 62,
-                        onPressed: () {},
+                        onPressed: () => Get.toNamed(Routes.registerUser),
                       ),
                     ),
                     const SizedBox(

@@ -25,4 +25,19 @@ final Map<String, String> ptBrTranslate = {
   "label_settings": "Configurações",
   "label_chat": "Chat",
   "label_account": "Conta",
+  "label_insert_data": "Insira os dados",
+  "label_pet_photos": "Fotos do bichinho",
+  "label_send": "Enviar",
+  "label_pet_name": "Nome do bichinho",
+  "label_breed": "Raça",
+  "label_characteristics": "Características",
+  "label_last_seen": "Visto pela última vez",
+  "message_finisched_register_1":
+      "Pronto! \nAssim que tivermos qualquer novidade estaremos notificando você.",
+  "message_finisched_register_2":
+      "Esperamos que  encontre seu bichinho em breve!",
+  "label_start": "Início",
+  "label_register_user": "Cadastro usuário",
+  "label_confirm_password": "Confirmar senha",
+  "label_return": "Voltar",
 };

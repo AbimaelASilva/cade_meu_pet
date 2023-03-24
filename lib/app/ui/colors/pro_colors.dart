@@ -7,10 +7,12 @@ abstract class ProColors {
   //
   static const greenDark = Color(0xFF3E5D61);
   //
+  static const grayLight = Color(0xFFF1F2F2);
+
   static const gray = Color(0xFFDADADA);
-  //
+
   static const grayMedium = Color(0xFF879EA1);
-  //
+
   static const grayDark = Color(0xFF808080);
   //
   static const redHigh = Color(0xFFD81616);

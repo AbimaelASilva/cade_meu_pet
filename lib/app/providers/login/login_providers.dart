@@ -1,12 +1,15 @@
-import 'package:hasura_connect/hasura_connect.dart';
+import '../../../connect/connect.dart';
 
 class LoginProviders {
-  LoginProviders(this._proHasuraConnect);
-  final HasuraConnect _proHasuraConnect;
+  LoginProviders(this._proDioConnect);
+  final ProDioConnect _proDioConnect;
 
-  Future<void> fetchData() async {
-    try {} catch (e) {
-      print('Error BannersProviders / fetchBanners: $e');
+  Future<void> getUser() async {
+    try {
+      final response =
+          await _proDioConnect.get(url: 'http://localhost:8080', ep: '/login');
+    } catch (e) {
+      rethrow;
     }
   }
 }

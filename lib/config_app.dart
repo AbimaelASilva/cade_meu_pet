@@ -7,4 +7,5 @@ abstract class ConfigApp {
       "YTA1N2EyMGEtMDk3OS00MzA1LWI0ZGMtMTEzYzRlZDdmNmUy";
   static const String userRabbitMQ = 'serSendMessage';
   static const String passwordRabbitMQ = 'userSendMessage';
+  static const String urlServer = 'http://192.168.0.3:8080';
 }
