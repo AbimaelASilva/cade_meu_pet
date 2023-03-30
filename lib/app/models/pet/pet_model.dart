@@ -1,9 +1,9 @@
 class PetModel {
-  final String nome;
-  final String raca;
-  final String caracteristicas;
-  final String ultimaVezVisto;
-  final int id;
+  String nome;
+  String raca;
+  String caracteristicas;
+  String ultimaVezVisto;
+  int id;
   PetModel({
     required this.nome,
     required this.raca,
@@ -12,7 +12,7 @@ class PetModel {
     required this.id,
   });
 
-  Map<String, dynamic> toMap() {
+  Map<String, dynamic> get toMap {
     final result = <String, dynamic>{};
 
     result.addAll({'nome': nome});
@@ -20,6 +20,17 @@ class PetModel {
     result.addAll({'caracteristicas': caracteristicas});
     result.addAll({'ultimaVezVisto': ultimaVezVisto});
     result.addAll({'id': id});
+
+    return result;
+  }
+
+  Map<String, dynamic> get toPostMap {
+    final result = <String, dynamic>{};
+
+    result.addAll({'nome': nome});
+    result.addAll({'raca': raca});
+    result.addAll({'caracteristicas': caracteristicas});
+    result.addAll({'ultimaVezVisto': ultimaVezVisto});
 
     return result;
   }

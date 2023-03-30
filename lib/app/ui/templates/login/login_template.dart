@@ -135,7 +135,10 @@ class LoginTemplate extends GetView<LoginController> {
                       child: ProActiveButton(
                         buttonName: 'label_to_access'.tr,
                         height: 62,
-                        onPressed: () => Get.toNamed(Routes.home),
+                        onPressed: () {
+                          //controller.getUser();
+                          Get.toNamed(Routes.home);
+                        },
                       ),
                     ),
                   ],

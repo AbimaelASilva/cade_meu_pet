@@ -7,13 +7,12 @@ class LoginController extends GetxController {
 
   final LoginProviders _providers;
 
-  Future<void> searchProduct({
+  Future<void> getUser({
     String searchTerm = '',
     bool scrollProductList = false,
   }) async {
     try {
-      //   await _productController.searchProduct(searchTerm: _searchTerm.value);
-
+      await _providers.getLostPets();
     } catch (e) {}
   }
 }

@@ -6,7 +6,7 @@ import 'package:get/get.dart';
 import '../../../ui/ui.dart';
 import '../../../controllers/controllers.dart';
 
-class RegisterPetTemplate extends GetView<HomeController> {
+class RegisterPetTemplate extends GetView<PetController> {
   const RegisterPetTemplate({Key? key}) : super(key: key);
 
   @override
@@ -61,14 +61,20 @@ class RegisterPetTemplate extends GetView<HomeController> {
                   children: [
                     Expanded(
                       child: customInput(
-                          headerName: 'label_pet_name'.tr, labelName: 'Rex'),
+                        headerName: 'label_pet_name'.tr,
+                        labelName: 'Rex',
+                        onChanged: (value) => controller.setName(value),
+                      ),
                     ),
                     const SizedBox(
                       width: ProSpaces.proSpaces16,
                     ),
                     Expanded(
                       child: customInput(
-                          headerName: 'label_breed'.tr, labelName: 'Bulldog'),
+                        headerName: 'label_breed'.tr,
+                        labelName: 'Bulldog',
+                        onChanged: (value) => controller.setBreed(value),
+                      ),
                     ),
                   ],
                 ),
@@ -79,7 +85,11 @@ class RegisterPetTemplate extends GetView<HomeController> {
                   children: [
                     Expanded(
                       child: customInput(
-                          headerName: 'label_characteristics'.tr, maxLines: 2),
+                        headerName: 'label_characteristics'.tr,
+                        maxLines: 2,
+                        onChanged: (value) =>
+                            controller.setCharacteristics(value),
+                      ),
                     ),
                   ],
                 ),
@@ -88,7 +98,10 @@ class RegisterPetTemplate extends GetView<HomeController> {
                 children: [
                   Expanded(
                     child: customInput(
-                        headerName: 'label_last_seen'.tr, maxLines: 2),
+                      headerName: 'label_last_seen'.tr,
+                      maxLines: 2,
+                      onChanged: (value) => controller.setLastSee(value),
+                    ),
                   ),
                 ],
               ),
@@ -110,7 +123,10 @@ class RegisterPetTemplate extends GetView<HomeController> {
                     child: ProActiveButton(
                       buttonName: 'label_send'.tr,
                       height: 50,
-                      onPressed: () => Get.toNamed(Routes.registerPetFinisched),
+                      onPressed: () async {
+                        await controller.registerPet();
+                        Get.toNamed(Routes.registerPetFinisched);
+                      },
                     ),
                   ),
                 ],
@@ -178,6 +194,7 @@ class RegisterPetTemplate extends GetView<HomeController> {
     String? headerName,
     String? labelName,
     int? maxLines,
+    Function(String)? onChanged,
   }) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -197,6 +214,7 @@ class RegisterPetTemplate extends GetView<HomeController> {
             labelStyle: ProTextStyles.regular14,
             hintText: labelName ?? '',
             maxLines: maxLines,
+            onChanged: onChanged,
           ),
         ),
       ],

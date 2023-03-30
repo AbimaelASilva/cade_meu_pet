@@ -1,13 +1,23 @@
+import 'package:cade_meu_pet/config_app.dart';
+
 import '../../../connect/connect.dart';
 
 class LoginProviders {
   LoginProviders(this._proDioConnect);
   final ProDioConnect _proDioConnect;
 
-  Future<void> getUser() async {
+  Future<bool> getLostPets() async {
     try {
-      final response =
-          await _proDioConnect.get(url: 'http://localhost:8080', ep: '/login');
+      final response = await _proDioConnect.post(
+        url: ConfigApp.urlServer,
+        ep: '/pet',
+      );
+
+      if (response.toString() == '1') {
+        return true;
+      } else {
+        return false;
+      }
     } catch (e) {
       rethrow;
     }

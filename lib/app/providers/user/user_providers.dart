@@ -11,6 +11,7 @@ class UserProviders {
 
   Future<bool> registerUser(UserModel user) async {
     try {
+      print(user.toPost);
       final response = await _proDioConnect.post(
         url: ConfigApp.urlServer,
         ep: '/login',

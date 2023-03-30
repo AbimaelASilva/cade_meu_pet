@@ -1,4 +1,5 @@
 import 'package:cade_meu_pet/app/ui/screens/login/login.dart';
+import 'package:cade_meu_pet/app/ui/screens/lost-pet/lost_pet_screen.dart';
 import 'package:get/route_manager.dart';
 
 import 'app_routes.dart';
@@ -21,6 +22,7 @@ class AppPages {
     GetPage(
       name: Routes.registerPet,
       page: () => const RegisterPetcreen(),
+      binding: PetBindings(),
     ),
     GetPage(
       name: Routes.registerPetFinisched,
@@ -30,6 +32,16 @@ class AppPages {
       name: Routes.registerUser,
       page: () => const RegisterUserScreen(),
       binding: UserBindings(),
+    ),
+    GetPage(
+      name: Routes.lostedPets,
+      page: () => const LostPetsCreen(),
+      binding: PetBindings(),
+    ),
+    GetPage(
+      name: Routes.petProfile,
+      page: () => const PetProfileCreen(),
+      binding: PetBindings(),
     ),
   ];
 }
