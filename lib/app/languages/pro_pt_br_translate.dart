@@ -40,7 +40,7 @@ final Map<String, String> ptBrTranslate = {
   "label_register_user": "Cadastro usuário",
   "label_confirm_password": "Confirmar senha",
   "label_return": "Voltar",
-  "label_you_see": "Você viu algumdesses por ai?",
+  "label_you_see": "Você viu algum desses por ai?",
   "label_wanted_list": "Lista de procurados",
   "label_profile": "Perfil",
   "label_report_information": "Reportar informação",

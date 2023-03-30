@@ -34,7 +34,7 @@ class AppPages {
       binding: UserBindings(),
     ),
     GetPage(
-      name: Routes.lostedPets,
+      name: Routes.lostPets,
       page: () => const LostPetsCreen(),
       binding: PetBindings(),
     ),

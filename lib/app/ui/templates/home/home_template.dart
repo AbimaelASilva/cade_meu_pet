@@ -81,7 +81,7 @@ class HomeTemplate extends GetView<HomeController> {
                         color: ProColors.redMedium,
                       ),
                       height: 62,
-                      onPressed: () => Get.toNamed(Routes.lostedPets),
+                      onPressed: () => Get.toNamed(Routes.lostPets),
                     ),
                   ),
                   const SizedBox(
