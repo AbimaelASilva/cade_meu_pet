@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:cade_meu_pet/app/models/models.dart';
+import 'package:cade_meu_pet/routes/app_routes.dart';
 import 'package:get/get.dart';
 
 import '../../providers/providers.dart';
@@ -14,7 +17,11 @@ class PetController extends GetxController {
 
   List<PetModel> get lostPetsList => _lostPetsList;
 
+  final _imagesList = <File>[].obs;
+
   PetModel get pet => _pet.value;
+
+  List<File> get imagesList => _imagesList.value;
 
   @override
   void onInit() {
@@ -62,5 +69,10 @@ class PetController extends GetxController {
     } catch (e) {
       rethrow;
     }
+  }
+
+  Future<void> getImage() async {
+    File image = await Get.toNamed(Routes.imageCrop);
+    _imagesList.add(image);
   }
 }

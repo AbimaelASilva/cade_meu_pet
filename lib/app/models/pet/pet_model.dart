@@ -17,8 +17,8 @@ class PetModel {
 
     result.addAll({'nome': nome});
     result.addAll({'raca': raca});
-    result.addAll({'caracteristicas': caracteristicas});
-    result.addAll({'ultimaVezVisto': ultimaVezVisto});
+    result.addAll({'crt': caracteristicas});
+    result.addAll({'visto': ultimaVezVisto});
     result.addAll({'id': id});
 
     return result;
@@ -29,28 +29,28 @@ class PetModel {
 
     result.addAll({'nome': nome});
     result.addAll({'raca': raca});
-    result.addAll({'caracteristicas': caracteristicas});
-    result.addAll({'ultimaVezVisto': ultimaVezVisto});
+    result.addAll({'crt': caracteristicas});
+    result.addAll({'visto': ultimaVezVisto});
 
     return result;
   }
 
   factory PetModel.fromMap(Map<String, dynamic> map) {
     return PetModel(
+      id: map['id']?.toInt() ?? 0,
       nome: map['nome'] ?? '',
       raca: map['raca'] ?? '',
-      caracteristicas: map['caracteristicas'] ?? '',
-      ultimaVezVisto: map['ultimaVezVisto'] ?? '',
-      id: map['id']?.toInt() ?? 0,
+      caracteristicas: map['crt'] ?? '',
+      ultimaVezVisto: map['visto'] ?? '',
     );
   }
   factory PetModel.empty() {
     return PetModel(
+      id: 0,
       nome: '',
       raca: '',
       caracteristicas: '',
       ultimaVezVisto: '',
-      id: 0,
     );
   }
 }

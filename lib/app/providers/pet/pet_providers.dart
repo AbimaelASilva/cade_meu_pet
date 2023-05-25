@@ -1,5 +1,5 @@
 import 'package:cade_meu_pet/app/models/models.dart';
-import 'package:cade_meu_pet/config_app.dart';
+import 'package:cade_meu_pet/app/providers/urls_app.dart';
 
 import '../../../connect/connect.dart';
 
@@ -10,11 +10,11 @@ class PetProviders {
   Future<List<PetModel>> getLostPets() async {
     try {
       final response = await _proDioConnect.get(
-        url: ConfigApp.urlServer,
-        ep: '/pet',
+        url: UrlsApp.urlApiNodeVercel,
+        ep: '/pets',
       );
 
-      return <Map<String, dynamic>>[...response ?? []]
+      return <Map<String, dynamic>>[...response['posts'] ?? []]
           .map(PetModel.fromMap)
           .toList();
     } catch (e) {
@@ -26,7 +26,7 @@ class PetProviders {
     try {
       print(pet.toPostMap);
       final response = await _proDioConnect.post(
-        url: ConfigApp.urlServer,
+        url: UrlsApp.urlApiNodeVercel,
         ep: '/pet',
         data: pet.toPostMap,
       );

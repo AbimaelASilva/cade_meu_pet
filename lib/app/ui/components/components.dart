@@ -6,3 +6,4 @@ export 'lottie/lottie.dart';
 export 'buttons/buttons.dart';
 export 'bottom-navigator/bottom_navigator.dart';
 export 'row-icons-text/row_icons_text.dart';
+export 'pro-snack-bar-native/pro_snack_bar_native.dart';

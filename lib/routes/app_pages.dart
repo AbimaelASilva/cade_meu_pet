@@ -1,3 +1,4 @@
+import 'package:cade_meu_pet/app/ui/screens/image-crop/image_crop.dart';
 import 'package:cade_meu_pet/app/ui/screens/login/login.dart';
 import 'package:cade_meu_pet/app/ui/screens/lost-pet/lost_pet_screen.dart';
 import 'package:get/route_manager.dart';
@@ -42,6 +43,11 @@ class AppPages {
       name: Routes.petProfile,
       page: () => const PetProfileCreen(),
       binding: PetBindings(),
+    ),
+    GetPage(
+      name: Routes.imageCrop,
+      page: () => const ImageCropScreen(),
+      binding: ImageCropBindings(),
     ),
   ];
 }

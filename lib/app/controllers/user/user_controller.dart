@@ -1,3 +1,4 @@
+import 'package:cade_meu_pet/app/ui/components/pro_snack_bar.dart';
 import 'package:get/get.dart';
 
 import '../../models/models.dart';
@@ -34,7 +35,12 @@ class UserController extends GetxController {
 
   Future<void> registerUser() async {
     try {
-      await _providers.registerUser(user);
+      final response = await _providers.registerUser(user);
+
+      if (response) {
+        Get.back();
+        proSnackBar(message: 'O usuário foi cadastrado');
+      }
     } catch (error) {
       print('ERROR: UserController/registerUser: $error');
     }

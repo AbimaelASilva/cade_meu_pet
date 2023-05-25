@@ -5,3 +5,4 @@ export 'finisched-register-pet/finisched_register_pet.dart';
 export 'register-user/register_user.dart';
 export 'lost-pets/lost_pets.dart';
 export 'pet-profile/pet_profile.dart';
+export 'image-crop/image_crop.dart';

@@ -1,4 +1,6 @@
-import 'package:cade_meu_pet/config_app.dart';
+import 'package:cade_meu_pet/app/models/models.dart';
+import 'package:cade_meu_pet/app/providers/urls_app.dart';
+import 'package:flutter_flavor/flutter_flavor.dart';
 
 import '../../../connect/connect.dart';
 
@@ -6,20 +8,23 @@ class LoginProviders {
   LoginProviders(this._proDioConnect);
   final ProDioConnect _proDioConnect;
 
-  Future<bool> getLostPets() async {
+  Future<bool> getUser(UserModel user) async {
     try {
       final response = await _proDioConnect.post(
-        url: ConfigApp.urlServer,
-        ep: '/pet',
+        url: UrlsApp.urlApiNodeVercel,
+        ep: '/user/login/${user.email}/${user.senha}',
       );
 
-      if (response.toString() == '1') {
+      if (response != null && response['token'] != 0) {
+        FlavorConfig.instance.variables["token"] = response["token"];
+        print('o token: ${FlavorConfig.instance.variables["token"]}');
+
         return true;
       } else {
         return false;
       }
     } catch (e) {
-      rethrow;
+      return false;
     }
   }
 }

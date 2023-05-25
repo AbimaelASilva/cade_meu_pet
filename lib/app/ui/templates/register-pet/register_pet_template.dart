@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:cade_meu_pet/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -48,10 +50,11 @@ class RegisterPetTemplate extends GetView<PetController> {
               Row(
                 children: [
                   Expanded(child: circleList()),
-                  imageCircle(
-                    urlImage:
-                        'https://t4.ftcdn.net/jpg/04/70/29/97/360_F_470299797_UD0eoVMMSUbHCcNJCdv2t8B2g1GVqYgs.jpg',
-                    icon: FontAwesomeIcons.plus,
+                  GestureDetector(
+                    child: imageCircle(
+                      icon: FontAwesomeIcons.plus,
+                    ),
+                    onTap: () => controller.getImage(),
                   )
                 ],
               ),
@@ -140,30 +143,30 @@ class RegisterPetTemplate extends GetView<PetController> {
   }
 
   Widget circleList() {
-    return SizedBox(
-      height: 105,
-      // width: Get.width * 0.65,
-      child: ListView.builder(
-        shrinkWrap: true,
-        scrollDirection: Axis.horizontal,
-        itemCount: 2,
-        // separatorBuilder: (context, index) {
-        //   return const Divider();
-        // },
-        itemBuilder: (context, index) {
-          return Padding(
-            padding: const EdgeInsets.only(right: ProSpaces.proSpaces16),
-            child: imageCircle(
-              urlImage:
-                  'https://t4.ftcdn.net/jpg/04/70/29/97/360_F_470299797_UD0eoVMMSUbHCcNJCdv2t8B2g1GVqYgs.jpg',
-            ),
-          );
-        },
+    return Obx(
+      () => SizedBox(
+        height: 105,
+        // width: Get.width * 0.65,
+        child: ListView.builder(
+          shrinkWrap: true,
+          scrollDirection: Axis.horizontal,
+          itemCount:
+              controller.imagesList.isEmpty ? 2 : controller.imagesList.length,
+          itemBuilder: (context, index) {
+            final file = controller.imagesList.isNotEmpty
+                ? controller.imagesList[index]
+                : null;
+            return Padding(
+              padding: const EdgeInsets.only(right: ProSpaces.proSpaces16),
+              child: imageCircle(file: file),
+            );
+          },
+        ),
       ),
     );
   }
 
-  Widget imageCircle({required String urlImage, IconData? icon}) {
+  Widget imageCircle({File? file, IconData? icon}) {
     return SizedBox(
       width: 100,
       height: 100,
@@ -174,11 +177,21 @@ class RegisterPetTemplate extends GetView<PetController> {
         borderRadius: 100,
         child: ClipRRect(
             borderRadius: BorderRadius.circular(100),
-            child: Icon(
-              icon ?? ProIconsFont.emptyimage,
-              color: ProColors.dark,
-              size: 32,
-            )
+            child: file == null
+                ? Icon(
+                    icon ?? ProIconsFont.emptyimage,
+                    color: ProColors.dark,
+                    size: 32,
+                  )
+                : ConstrainedBox(
+                    constraints: BoxConstraints(
+                      maxWidth: 60,
+                      maxHeight: 60,
+                    ),
+                    child: Image.file(
+                      file,
+                      fit: BoxFit.cover,
+                    ))
             // ProImageNetwork(
             //   widthImage: 90,
             //   imageUrl: urlImage,

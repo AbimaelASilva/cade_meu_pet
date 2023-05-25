@@ -1,11 +1,17 @@
 import 'package:cade_meu_pet/app/ui/colors/colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_flavor/flutter_flavor.dart';
 import 'package:get/get.dart';
 
 import 'app/pro_translations.dart';
 import 'routes/routes.dart';
 
 void main() async {
+  FlavorConfig(
+    variables: {
+      "token": '',
+    },
+  );
   runApp(const ProApp());
 }
 

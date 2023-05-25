@@ -1,7 +1,7 @@
-import 'dart:convert';
+import 'package:flutter_flavor/flutter_flavor.dart';
 
-import 'package:cade_meu_pet/app/models/models.dart';
-import 'package:cade_meu_pet/config_app.dart';
+import '../../models/models.dart';
+import '../urls_app.dart';
 
 import '../../../connect/connect.dart';
 
@@ -13,12 +13,11 @@ class UserProviders {
     try {
       print(user.toPost);
       final response = await _proDioConnect.post(
-        url: ConfigApp.urlServer,
-        ep: '/login',
-        data: user.toPost,
+        url: UrlsApp.urlApiNodeVercel,
+        ep: '/user/cadastro/${user.email}/${user.senha}',
       );
 
-      if (response.toString() == '1') {
+      if (response != null && response['id_usuario'] != 0) {
         return true;
       } else {
         return false;

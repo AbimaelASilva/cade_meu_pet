@@ -6,4 +6,5 @@ abstract class Routes {
   static const registerUser = '/registerUser';
   static const lostPets = '/lostedPets';
   static const petProfile = '/petProfile';
+  static const imageCrop = '/imageCrop';
 }

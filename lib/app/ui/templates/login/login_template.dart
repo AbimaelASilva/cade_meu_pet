@@ -6,7 +6,9 @@ import '../../../ui/ui.dart';
 import '../../../controllers/controllers.dart';
 
 class LoginTemplate extends GetView<LoginController> {
-  const LoginTemplate({Key? key}) : super(key: key);
+  LoginTemplate({Key? key}) : super(key: key);
+
+  StateController _statecontroller = Get.put(StateController());
 
   @override
   Widget build(BuildContext context) {
@@ -66,6 +68,7 @@ class LoginTemplate extends GetView<LoginController> {
                   backgroundColor: ProColors.gray,
                   labelStyle: ProTextStyles.regular14,
                   hintText: 'label_email'.tr,
+                  onChanged: (String value) => controller.setEmail = value,
                 ),
               ),
               Text(
@@ -83,6 +86,7 @@ class LoginTemplate extends GetView<LoginController> {
                   backgroundColor: ProColors.gray,
                   labelStyle: ProTextStyles.regular14,
                   hintText: 'label_password'.tr,
+                  onChanged: (String value) => controller.setPassword = value,
                 ),
               ),
               Row(
@@ -134,10 +138,14 @@ class LoginTemplate extends GetView<LoginController> {
                     Expanded(
                       child: ProActiveButton(
                         buttonName: 'label_to_access'.tr,
+                        icon: controller.isLoading
+                            ? const CircularProgressIndicator(
+                                color: Colors.white,
+                              )
+                            : null,
                         height: 62,
                         onPressed: () {
-                          //controller.getUser();
-                          Get.toNamed(Routes.home);
+                          controller.getUser();
                         },
                       ),
                     ),
