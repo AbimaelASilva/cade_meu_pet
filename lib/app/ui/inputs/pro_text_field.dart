@@ -31,10 +31,72 @@ class ProTextField extends StatelessWidget {
   final Color? backgroundColor;
   final int? maxLines;
 
+//  factory ProTextField.password({
+//     this.value = '',
+//     this.onChanged,
+//     this.onTap,
+//     this.hintText = '',
+//     this.label = '',
+//     this.keyboardType,
+//     this.labelStyle,
+//     this.inputFormmatters,
+//     this.enabledInput,
+//     this.backgroundColor,
+//     this.maxLines,
+//     Key? key,
+//   }) : super(key: key);
+
+  /// Constructor for input area
+  factory ProTextField.area({
+    Key? key,
+    Color? backgroundColor,
+    bool? enabledInput,
+    String hintText = '',
+    List<TextInputFormatter>? inputFormmatters,
+    TextInputType? keyboardType,
+    String label = '',
+    TextStyle? labelStyle,
+    int? maxLines,
+    dynamic Function(String)? onChanged,
+    dynamic Function()? onTap,
+    String value = '',
+  }) {
+    return ProTextField._(
+      key: key,
+      backgroundColor: backgroundColor,
+      enabledInput: enabledInput,
+      hintText: hintText,
+      inputFormmatters: inputFormmatters,
+      keyboardType: keyboardType,
+      label: label,
+      labelStyle: labelStyle,
+      maxLines: maxLines,
+      onChanged: onChanged,
+      onTap: onTap,
+      value: value,
+    );
+  }
+
+  const ProTextField._({
+    this.value = '',
+    this.onChanged,
+    this.onTap,
+    this.hintText = '',
+    this.label = '',
+    this.keyboardType,
+    this.labelStyle,
+    this.inputFormmatters,
+    this.enabledInput,
+    this.backgroundColor,
+    this.maxLines,
+    Key? key,
+  }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return TextField(
       enabled: enabledInput,
+      //  obscureText: true,
       controller: TextEditingController.fromValue(
         TextEditingValue(
           text: value,

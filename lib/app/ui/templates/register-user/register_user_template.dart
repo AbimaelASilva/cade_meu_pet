@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -64,6 +63,7 @@ class RegisterUserTemplate extends GetView<UserController> {
                 ),
                 child: ProTextField(
                   value: controller.user.senha,
+                  
                   backgroundColor: ProColors.gray,
                   labelStyle: ProTextStyles.regular14,
                   hintText: 'label_password'.tr,
@@ -110,10 +110,19 @@ class RegisterUserTemplate extends GetView<UserController> {
                       width: ProSpaces.proSpaces20,
                     ),
                     Expanded(
-                      child: ProActiveButton(
-                        buttonName: 'label_register'.tr,
-                        height: 62,
-                        onPressed: () => controller.registerUser(),
+                      child: Obx(
+                        () => ProActiveButton(
+                          buttonName: 'label_register'.tr,
+                          backgroundColor:
+                              controller.isRegistering ? ProColors.gray : null,
+                          icon: controller.isRegistering
+                              ? const CircularProgressIndicator()
+                              : null,
+                          height: 62,
+                          onPressed: controller.isRegistering
+                              ? null
+                              : () => controller.registerUser(),
+                        ),
                       ),
                     ),
                   ],

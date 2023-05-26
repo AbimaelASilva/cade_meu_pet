@@ -1,5 +1,3 @@
-import 'package:flutter_flavor/flutter_flavor.dart';
-
 import '../../models/models.dart';
 import '../urls_app.dart';
 
@@ -11,11 +9,10 @@ class UserProviders {
 
   Future<bool> registerUser(UserModel user) async {
     try {
-      print(user.toPost);
       final response = await _proDioConnect.post(
-        url: UrlsApp.urlApiNodeVercel,
-        ep: '/user/cadastro/${user.email}/${user.senha}',
-      );
+          url: UrlsApp.urlApiNodeVercel,
+          ep: '/user/cadastro',
+          data: user.toPost);
 
       if (response != null && response['id_usuario'] != 0) {
         return true;

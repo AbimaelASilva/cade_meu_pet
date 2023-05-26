@@ -13,7 +13,11 @@ class UserController extends GetxController {
 
   final _confirmPassword = ''.obs;
 
+  final _isRegistering = false.obs;
+
   UserModel get user => _user.value;
+
+  bool get isRegistering => _isRegistering.value;
 
   String get confirmPassword => _confirmPassword.value;
 
@@ -35,6 +39,7 @@ class UserController extends GetxController {
 
   Future<void> registerUser() async {
     try {
+      _isRegistering.value = true;
       final response = await _providers.registerUser(user);
 
       if (response) {
@@ -43,6 +48,8 @@ class UserController extends GetxController {
       }
     } catch (error) {
       print('ERROR: UserController/registerUser: $error');
+    } finally {
+      _isRegistering.value = false;
     }
   }
 }

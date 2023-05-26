@@ -1,6 +1,5 @@
 import 'dart:io';
 
-import 'package:cade_meu_pet/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
@@ -123,13 +122,28 @@ class RegisterPetTemplate extends GetView<PetController> {
               child: Row(
                 children: [
                   Expanded(
-                    child: ProActiveButton(
-                      buttonName: 'label_send'.tr,
-                      height: 50,
-                      onPressed: () async {
-                        await controller.registerPet();
-                        Get.toNamed(Routes.registerPetFinisched);
-                      },
+                    child: Obx(
+                      () => ProActiveButton(
+                        icon: controller.registeringPet
+                            ? const SizedBox(
+                                height: 32,
+                                width: 32,
+                                child: CircularProgressIndicator(
+                                    color: ProColors.white),
+                              )
+                            : null,
+                        backgroundColor:
+                            controller.registeringPet ? ProColors.gray : null,
+                        buttonName: controller.registeringPet
+                            ? 'Registrando Pet...'
+                            : 'label_send'.tr,
+                        height: 50,
+                        onPressed: controller.registeringPet
+                            ? null
+                            : () async {
+                                await controller.registerPet();
+                              },
+                      ),
                     ),
                   ),
                 ],
@@ -151,10 +165,10 @@ class RegisterPetTemplate extends GetView<PetController> {
           shrinkWrap: true,
           scrollDirection: Axis.horizontal,
           itemCount:
-              controller.imagesList.isEmpty ? 2 : controller.imagesList.length,
+              controller.pet.images.isEmpty ? 2 : controller.pet.images.length,
           itemBuilder: (context, index) {
-            final file = controller.imagesList.isNotEmpty
-                ? controller.imagesList[index]
+            final file = controller.pet.images.isNotEmpty
+                ? controller.pet.images[index]
                 : null;
             return Padding(
               padding: const EdgeInsets.only(right: ProSpaces.proSpaces16),

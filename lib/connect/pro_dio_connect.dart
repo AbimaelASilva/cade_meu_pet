@@ -27,12 +27,16 @@ class ProDioConnect {
     required String ep,
     Map<String, dynamic>? queryParameters,
     dynamic data,
+    Map<String, dynamic>? headers,
   }) async {
     try {
       final response = await dio.post(
         "$url$ep",
         queryParameters: queryParameters,
         data: data,
+        options: Options(
+          headers: headers,
+        ),
       );
 
       return response.data;

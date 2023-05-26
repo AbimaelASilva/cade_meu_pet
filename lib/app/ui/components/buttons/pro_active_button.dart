@@ -43,12 +43,21 @@ class ProActiveButton extends StatelessWidget {
                 side: borderSide ?? BorderSide.none,
               ),
             )),
-        child: Text(
-          buttonName,
-          style: TextStyle(
-            color: textColor ?? ProColors.white,
-          ),
-          textAlign: TextAlign.center,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(right: ProSpaces.proSpaces10),
+              child: icon ?? SizedBox.shrink(),
+            ),
+            Text(
+              buttonName,
+              style: TextStyle(
+                color: textColor ?? ProColors.white,
+              ),
+              textAlign: TextAlign.center,
+            ),
+          ],
         ),
       ),
     );

@@ -1,25 +1,29 @@
+import 'dart:io';
+
 class PetModel {
+  int id;
   String nome;
   String raca;
   String caracteristicas;
   String ultimaVezVisto;
-  int id;
+  List<File> images;
   PetModel({
+    required this.id,
     required this.nome,
     required this.raca,
     required this.caracteristicas,
     required this.ultimaVezVisto,
-    required this.id,
+    required this.images,
   });
 
   Map<String, dynamic> get toMap {
     final result = <String, dynamic>{};
 
+    result.addAll({'id': id});
     result.addAll({'nome': nome});
     result.addAll({'raca': raca});
     result.addAll({'crt': caracteristicas});
     result.addAll({'visto': ultimaVezVisto});
-    result.addAll({'id': id});
 
     return result;
   }
@@ -42,6 +46,7 @@ class PetModel {
       raca: map['raca'] ?? '',
       caracteristicas: map['crt'] ?? '',
       ultimaVezVisto: map['visto'] ?? '',
+      images: map['img'] != null ? [File(map['img'])] : [],
     );
   }
   factory PetModel.empty() {
@@ -51,6 +56,7 @@ class PetModel {
       raca: '',
       caracteristicas: '',
       ultimaVezVisto: '',
+      images: [],
     );
   }
 }

@@ -12,7 +12,8 @@ class LoginProviders {
     try {
       final response = await _proDioConnect.post(
         url: UrlsApp.urlApiNodeVercel,
-        ep: '/user/login/${user.email}/${user.senha}',
+        ep: '/user/login',
+        data: user.toPost,
       );
 
       if (response != null && response['token'] != 0) {

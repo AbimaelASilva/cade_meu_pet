@@ -32,39 +32,39 @@ class LostPetsTemplate extends GetView<PetController> {
                 padding: const EdgeInsets.only(top: 12),
                 child: Text(
                   'label_wanted_list'.tr,
-                  style: ProTextStyles.regular14.copyWith(
+                  style: ProTextStyles.bold22.copyWith(
                     color: ProColors.greenDark,
                   ),
-                  textAlign: TextAlign.center,
+                  textAlign: TextAlign.start,
                 ),
               ),
             ),
             SliverFillRemaining(
               hasScrollBody: false,
               child: Padding(
-                padding: const EdgeInsets.only(top: 48),
+                padding: const EdgeInsets.only(top: 32),
                 child: Obx(
                   () => controller.lostPetsList.isNotEmpty
                       ? Wrap(
                           runSpacing: 10,
-                          spacing: 16,
-                          alignment: WrapAlignment.center,
+                          spacing: 8,
+                          alignment: WrapAlignment.spaceBetween,
                           children: List.generate(
                               controller.lostPetsList.length, (index) {
-                            final pet = controller.lostPetsList[index];
+                            final pet = controller.lostPetsList.reversed
+                                .toList()[index];
                             return GestureDetector(
                               child: SizedBox(
-                                width: 120,
-                                height: 120,
+                                width: 100,
+                                height: 100,
                                 child: Column(
                                   children: [
                                     Expanded(
                                       child: ClipRRect(
                                         borderRadius: BorderRadius.circular(10),
-                                        child: const ProImageNetwork(
+                                        child: ProImageNetwork(
                                           widthImage: 120,
-                                          imageUrl:
-                                              'https://static.wixstatic.com/media/16c759_521d25fc4faa4a1481c1292068a88f28~mv2.jpg/v1/fill/w_280,h_280,q_90/16c759_521d25fc4faa4a1481c1292068a88f28~mv2.jpg',
+                                          imageUrl: pet.images.first.path,
                                           fit: BoxFit.cover,
                                         ),
                                       ),
@@ -75,6 +75,7 @@ class LostPetsTemplate extends GetView<PetController> {
                                           .copyWith(color: ProColors.dark),
                                       maxLines: 2,
                                       overflow: TextOverflow.ellipsis,
+                                      textAlign: TextAlign.center,
                                     ),
                                   ],
                                 ),

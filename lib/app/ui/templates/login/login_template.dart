@@ -64,12 +64,13 @@ class LoginTemplate extends GetView<LoginController> {
                   top: ProSpaces.proSpaces4,
                   bottom: ProSpaces.proSpaces20,
                 ),
-                child: ProTextField(
-                  backgroundColor: ProColors.gray,
-                  labelStyle: ProTextStyles.regular14,
-                  hintText: 'label_email'.tr,
-                  onChanged: (String value) => controller.setEmail = value,
-                ),
+                child: Obx(() => ProTextField(
+                      backgroundColor: ProColors.gray,
+                      labelStyle: ProTextStyles.regular14,
+                      hintText: 'label_email'.tr,
+                      label: controller.user.email,
+                      onChanged: (String value) => controller.setEmail = value,
+                    )),
               ),
               Text(
                 'label_tap_password'.tr,
@@ -82,12 +83,14 @@ class LoginTemplate extends GetView<LoginController> {
                   top: ProSpaces.proSpaces4,
                   bottom: ProSpaces.proSpaces32,
                 ),
-                child: ProTextField(
-                  backgroundColor: ProColors.gray,
-                  labelStyle: ProTextStyles.regular14,
-                  hintText: 'label_password'.tr,
-                  onChanged: (String value) => controller.setPassword = value,
-                ),
+                child: Obx(() => ProTextField(
+                      backgroundColor: ProColors.gray,
+                      labelStyle: ProTextStyles.regular14,
+                      hintText: 'label_password'.tr,
+                      label: controller.user.senha,
+                      onChanged: (String value) =>
+                          controller.setPassword = value,
+                    )),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -136,17 +139,19 @@ class LoginTemplate extends GetView<LoginController> {
                       width: ProSpaces.proSpaces20,
                     ),
                     Expanded(
-                      child: ProActiveButton(
-                        buttonName: 'label_to_access'.tr,
-                        icon: controller.isLoading
-                            ? const CircularProgressIndicator(
-                                color: Colors.white,
-                              )
-                            : null,
-                        height: 62,
-                        onPressed: () {
-                          controller.getUser();
-                        },
+                      child: Obx(
+                        () => ProActiveButton(
+                          buttonName: 'label_to_access'.tr,
+                          icon: controller.isLoading
+                              ? const CircularProgressIndicator(
+                                  color: Colors.white,
+                                )
+                              : null,
+                          height: 62,
+                          onPressed: () {
+                            controller.getUser();
+                          },
+                        ),
                       ),
                     ),
                   ],

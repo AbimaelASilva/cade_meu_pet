@@ -13,22 +13,37 @@ class LoginController extends GetxController {
 
   final LoginProviders _providers;
 
-  UserModel _user = UserModel.empty();
+  final _user = UserModel.empty().obs;
 
-  set setEmail(String value) => _user.email = value;
+  final _isLoading = false.obs;
 
-  set setPassword(String value) => _user.senha = value;
+  set setEmail(String value) => _user.value.email = value;
 
-  get isLoading => _state.isLoading;
+  set setPassword(String value) => _user.value.senha = value;
+
+  UserModel get user => _user.value;
+
+  get isLoading => _isLoading.value;
+
+  void _clearUser() {
+    _user.update((val) {
+      val!.email = '';
+      val.senha = '';
+    });
+
+    refresh();
+  }
 
   Future<void> getUser({
     String searchTerm = '',
     bool scrollProductList = false,
   }) async {
     try {
-      final response = await _providers.getUser(_user);
+      _isLoading.value = true;
+      final response = await _providers.getUser(_user.value);
 
       if (response) {
+        _clearUser();
         Get.toNamed(Routes.home);
       } else {
         proSnackBar(
@@ -39,7 +54,7 @@ class LoginController extends GetxController {
     } catch (error) {
       print('ERROR /LoginController/getUser:$error ');
     } finally {
-      _state.changeIsLoading = false;
+      _isLoading.value = false;
     }
   }
 }

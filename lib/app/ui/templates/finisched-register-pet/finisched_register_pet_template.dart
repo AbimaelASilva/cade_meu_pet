@@ -1,3 +1,4 @@
+import 'package:cade_meu_pet/routes/routes.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -58,7 +59,7 @@ class FinischedRegisterPetTemplate extends GetView<HomeController> {
                     child: ProActiveButton(
                       buttonName: 'label_start'.tr,
                       height: 50,
-                      onPressed: () {},
+                      onPressed: () => Get.offAllNamed(Routes.home),
                     ),
                   ),
                 ],
